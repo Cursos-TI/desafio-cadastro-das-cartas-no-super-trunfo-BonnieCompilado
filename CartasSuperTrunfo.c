@@ -5,21 +5,21 @@
 int main (){
 
 //Insira as variáveis e as defina
-        char estado1, codigo1[3], cidade1[50];
+        char estado1, codigo1[4], cidade1[50];
         int populacao1, turistico1;
-        float area1, pib1, densidade1, percapita1;
+        float area1, pib1, densidade1 = 0, percapita1 = 0;
     
-        char estado2, codigo2[3], cidade2[50];
+        char estado2, codigo2[4], cidade2[50];
         int populacao2, turistico2;
-        float area2, pib2, densidade2, percapita2;
+        float area2, pib2, densidade2 = 0, percapita2 = 0;
         
 //Coloque as informações da primeira carta
         printf("Você está preenchendo as informações da PRIMEIRA carta!\n");
     
-        printf("Digite a Inicial do Estado:\n");
-        scanf ("%s", &estado1);
+        printf("Digite a Inicial do Estado (A-H):\n");
+        scanf (" %c", &estado1);
     
-        printf("Digite o Código da Carta:\n");
+        printf("Digite o Código da Carta (ex: A01):\n");
         scanf("%3s", codigo1);
     
         printf("Digite o Nome da Cidade:\n");
@@ -40,10 +40,10 @@ int main (){
 //Coloque agora as informações da segunda carta
         printf("Você está preenchendo as informações da SEGUNDA carta!\n");
     
-        printf("Digite a Inicial do Estado:\n");
-        scanf("%s", &estado2);
+        printf("Digite a Inicial do Estado (A-H):\n");
+        scanf(" %c", &estado2);
     
-        printf("Digite o Código da Carta:\n");
+        printf("Digite o Código da Carta (Ex: A01):\n");
         scanf("%3s", codigo2);
     
         printf("Digite o Nome da Cidade:\n");
@@ -61,13 +61,33 @@ int main (){
         printf("Digite o Número de Pontos Turísticos da Cidade:\n");
         scanf("%d", &turistico2);
 
-        densidade1 = (float) populacao1 / area1;
-        percapita1 = (float) pib1 / populacao1;
-        densidade2 = (float) populacao2 / area2;
-        percapita2 = (float) pib2 / populacao2;
+//Calculando densidade demográfica e PIB per Capita
+        if (area1 > 0)
+                densidade1 = (float) populacao1 / area1;
+        else
+                densidade1 = 0;
+
+        if (populacao1 > 0)
+                percapita1 = (pib1 * 1000000000.0) / (float) populacao1;
+        else 
+                percapita1 = 0;
+
+
+                
+        if (area2 > 0)
+                densidade2 = (float) populacao2 / area2;
+        else
+                densidade2 = 0;
+
+        if (populacao2 > 0)
+                percapita2 = (pib2 * 1000000000.0) / (float) populacao2;
+        else 
+                percapita2 = 0;
+            
+            
     
 //Exiba as cartas com os dados que o usuário inseriu
-        printf("PRIMEIRA CARTA:\n");
+        printf("\n---PRIMEIRA CARTA---\n");
         printf("Inicial do Estado: %c\n", estado1);
         printf("Código da Cidade: %3s\n", codigo1);
         printf("Nome da Cidade: %s\n", cidade1);
@@ -78,7 +98,7 @@ int main (){
         printf("Densidade Populacional: %.2f hab/km²\n", densidade1);
         printf("PIB per Capita: R$%.2f\n", percapita1);
     
-        printf("SEGUNDA CARTA:\n");
+        printf("\n---SEGUNDA CARTA---\n");
         printf("Inicial do Estado: %c\n", estado2);
         printf("Código da Cidade: %3s\n", codigo2);
         printf("Nome da Cidade: %s\n", cidade2);
@@ -89,8 +109,6 @@ int main (){
         printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
         printf("PIB per Capita: R$%.2f\n", percapita2);
 
-
-    
 //Conclua o programa com sucesso
     return 0;
     }
