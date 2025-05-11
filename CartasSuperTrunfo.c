@@ -113,6 +113,7 @@ int main (){
         superpoder1 = 1 / densidade1 + ((float) populacao1 + area1 + pib1 + turistico1 + percapita1);
         superpoder2 = 1 / densidade2 + ((float) populacao2 + area2 + pib2 + turistico2 + percapita2);
 
+//Anuncie os vencedores
         printf("\n*VENCEDORES*\n");
         printf("População: %d\n", populacao1 > populacao2);
         printf("Área: %d\n", area1 > area2);
@@ -121,8 +122,6 @@ int main (){
         printf("Densidade Populacional: %d\n", densidade1 > densidade2);
         printf("PIB per Capita: %d\n", percapita1 > percapita2);
         printf("Super-Poder: %d\n", superpoder1 > superpoder2);
-
-
 
 //Conclua o programa com sucesso
     return 0;
