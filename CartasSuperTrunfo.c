@@ -123,6 +123,13 @@ int main (){
         printf("PIB per Capita: %d\n", percapita1 > percapita2);
         printf("Super-Poder: %d\n", superpoder1 > superpoder2);
 
+        if (populacao1 > populacao2){
+                printf("\nPopulação: Carta 1 venceu - %lu\n\n", populacao1);
+        }
+        else{
+                printf("\nPopulação: Carta 2 venceu - %lu\n\n", populacao2);
+        }
+
 //Conclua o programa com sucesso
     return 0;
     }
